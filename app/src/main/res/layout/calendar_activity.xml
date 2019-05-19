@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:orientation="vertical"
+    tools:context=".CalenderHelper">
+
+    <TextView
+        android:layout_width="377dp"
+        android:layout_height="wrap_content"
+        android:text="Your calendar "
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:textColor="@color/cardview_dark_background"/>
+
+    <CalendarView
+
+        android:id="@+id/calendarView"
+        android:layout_width="370dp"
+        android:layout_height="348dp"></CalendarView>
+
+    <Button
+        android:id="@+id/addingEvent"
+        android:layout_width="372dp"
+        android:layout_height="63dp"
+        android:text="Adding Events" />
+
+</LinearLayout>
