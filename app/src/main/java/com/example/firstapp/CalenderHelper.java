@@ -1,6 +1,5 @@
 package com.example.firstapp;
 
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,13 +11,13 @@ import android.widget.Toast;
 
 public class CalenderHelper extends AppCompatActivity {
     CalendarView calendarView;
-    private Button add;
+    private Button Notes;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_activity);
 
-        add = (Button)findViewById(R.id.addingEvent);
+        Notes = (Button)findViewById(R.id.Notes);
         calendarView = (CalendarView)findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -30,7 +29,7 @@ public class CalenderHelper extends AppCompatActivity {
 
         });
 
-        add.setOnClickListener(new View.OnClickListener() {
+        Notes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent changetoNotes = new Intent(CalenderHelper.this, NotesActivity.class);

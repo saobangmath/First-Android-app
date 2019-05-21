@@ -25,9 +25,9 @@
         android:layout_height="348dp"></CalendarView>
 
     <Button
-        android:id="@+id/addingEvent"
+        android:id="@+id/Notes"
         android:layout_width="372dp"
         android:layout_height="63dp"
-        android:text="Adding Events" />
+        android:text="Notes" />
 
 </LinearLayout>

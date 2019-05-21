@@ -11,10 +11,14 @@ public class Notes {
         return this.id;
     }
     public void Setid(int id){
+
         this.id = id;
     }
     public String getName(){
         return this.name;
+    }
+    public void SetName(String name){
+        this.name = name;
     }
 
 }
