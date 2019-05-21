@@ -1,15 +1,17 @@
 package com.example.firstapp;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText et_name, et_email, et_phone, et_pass, et_cpass;
     private String name, email, phone, pass, cpass;
     Button logbut;
@@ -25,12 +27,14 @@ public class RegisterActivity extends AppCompatActivity {
         et_cpass=(EditText)findViewById(R.id.cpass);
         logbut = (Button) findViewById(R.id.register);
         logbut.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
             @Override
             public void onClick(View v) {
                 login();
             }
         });
     }
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     private void login() {
         initialize();
         if (!validate()){
@@ -46,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         Intent changetomain = new Intent(RegisterActivity.this, MainAccount.class) ;
         startActivity(changetomain);
     }
+
     public boolean validate(){
         boolean valid = true;
         if (name.isEmpty() || name.length()>32){
@@ -64,22 +69,9 @@ public class RegisterActivity extends AppCompatActivity {
             et_pass.setError("Please select valid email");
             valid = false;
         }
-        else{
-            boolean exist = false;
+        else{ // basic requirement is satisfied then..
 
-//            Iterator iterator = Database.codes.iterator();
-//            while (iterator.hasNext()){
-//                if (pass.equals(iterator)){
-//                    exist = true;
-//                }
-//            }
-//            if (!exist){
-//                Toast.makeText(this, "The password not exist!",Toast.LENGTH_SHORT);
-//            }
-//            else{
-//                // do sth
-//                // code later
-//                Toast.makeText(this, "The password exists!",Toast.LENGTH_SHORT);
+//
 //            }
         }
         if (cpass.isEmpty() || !cpass.equals(pass)){
@@ -89,6 +81,16 @@ public class RegisterActivity extends AppCompatActivity {
 
         return valid;
     }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.register:
+
+
+        }
+    }
+
     private void initialize(){
         name = et_name.getText().toString().trim();
         email = et_email.getText().toString().trim();
